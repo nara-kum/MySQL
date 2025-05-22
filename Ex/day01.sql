@@ -83,5 +83,10 @@ select 	first_name, last_name
 from employees
 ;
 -- 전체직원의 정보를 다음과 같이 출력하세요
-
-
+select 	concat(first_name,'-',last_name) '성명'
+		, salary '월급'
+        , salary*12 '연봉'
+        , salary*12+5000 '보너스'
+        , phone_number '전화번호'
+from employees
+;
