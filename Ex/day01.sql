@@ -1,7 +1,9 @@
-/************
+/***********************
 select 문 조회
-************/
--- select문 (select절 + from절)
+***********************/
+-- ---------------------
+-- select절 + from절
+-- ---------------------
 select * from employees;	-- ; 마침표
 select * from Employees;	-- 대소문자 구분하지 않음
 
@@ -14,7 +16,6 @@ select * from job_history;	-- 업무현황
 select * from jobs;			-- 업무
 select * from departments;	-- 부서
 
--- select 절 --
 -- 전체
 select * from employees;
 
@@ -22,7 +23,6 @@ select * from employees;
 select employee_id, first_name, last_name
 from employees
 ;
-
 -- 모든 직원의 이름(fisrt_name)과 전화번호 입사일 월급을 출력하세요
 select	first_name
 		, phone_number
@@ -30,7 +30,6 @@ select	first_name
         , salary
 from employees
 ;
-
 -- 모든 직원의 이름(first_name)과 성(last_name), 월급, 전화번호, 이메일, 입사일을 출력하세요
 select 	first_name
 		, last_name
@@ -40,7 +39,6 @@ select 	first_name
         , hire_date 
 from employees
 ;
-
 -- 직원의 이름(fisrt_name)과 전화번호, 입사일, 월급 으로 표시되도록 출력하세요
 select 	first_name '이름'
 		, phone_number '전화번호'
@@ -48,7 +46,6 @@ select 	first_name '이름'
         , salary '월급'
 from employees
 ;
-
 -- 직원의 직원아이디를 사 번, 이름(first_name), 성(last_name), 월급, 전화번호, 이메일, 입사일로 표시되도록 출력하세요
 select 	employee_id	'사 번'
 		, first_name '이름'
@@ -74,7 +71,6 @@ from employees
 select job_id
 from employees
 ;
-
 select 	first_name, last_name
 		, concat(first_name,last_name) '전체이름'
         , concat(first_name,' ',last_name) '전체 이름'
@@ -90,3 +86,15 @@ select 	concat(first_name,'-',last_name) '성명'
         , phone_number '전화번호'
 from employees
 ;
+-- 테이블의 컬럼명테이블의 데이터,  문자열,숫자는 그대로 출력 
+select 	'(주)개발자' company
+        , first_name
+		, salary
+        , 3+3 no
+from employees
+;
+-- MySQL은 테이블명을 생략할 수 있다. (오라클은 안됨)
+select 	'(주)개발자' company from employees;	-- 데이터의 갯수만큼 출력
+select 	'(주)개발자' company from dual;		-- 가상의 테이블 사용
+select 	'(주)개발자' company ;				-- from절 생략 가능
+
