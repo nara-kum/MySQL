@@ -102,9 +102,14 @@ order by hire_date
 -- 문제11 - 필요한 함수(특정날짜의 요일을 수자로 알려줌)를 검색하고 사용법을 주석으로 남겨두세요 
 -- 가장 오래 근속한 직원의 입사일은 언제인가요? 다음 형식으로 출력해주세요. 
 -- 예) 2005년 08월 20일(토요일)
-select date_format(min(hire_date),'%Y년 %m월 %d일')
---     , concat(date_format(min(hire_date),'%Y년 %m월 %d일'),'(',DAYOFWEEK(min(hire_date)) ,')')
---     , concat(date_format(min(hire_date),'%Y년 %m월 %d일'),'(',substr(_UTF8'일월화수목금토', DAYOFWEEK(min(hire_date)), 1) ,')')
+select concat(hire_date,' ' ,'(', case dayofweek(hire_date)
+								   when '1' then '일요일'
+								   when '2' then '월요일'
+								   when '3' then '화요일'
+								   when '4' then '수요일'
+								   when '5' then '목요일'
+								   when '6' then '금요일'
+								   when '7' then '토요일' end , ')') hire_date
 from employees
 ;
 SELECT DAYOFWEEK(curdate()) from dual;
