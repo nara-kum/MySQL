@@ -156,8 +156,6 @@ select * from employees;
 select * from departments
 
 
-
-
 -- 문제9-1. 
 -- 문제9 에서 부서가 없는 직원(Kimberely)도 표시하고. 매니저가 없는 Steven도 표시하지 않습니다.(106명) 
 
